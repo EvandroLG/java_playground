@@ -1,9 +1,9 @@
 package objects;
 
 public class Rectangle {
-    private double length;
-    private double width;
-    private int sides = 4;
+    protected double length;
+    protected double width;
+    protected int sides = 4;
 
     public Rectangle() {
         setLength(0);
@@ -15,7 +15,7 @@ public class Rectangle {
         setWidth(width);
     }
 
-    public double calculateParameter() {
+    public double calculatePerimeter() {
         return (2 * length) + (2 * width);
     }
 
