@@ -13,7 +13,7 @@ public class LotteryTicket {
     }
 
     public static int[] generateNumbers() {
-        int[] ticket = new int[LENGTH];
+        int[] tickets = new int[LENGTH];
         Random random = new Random();
 
         for (int i = 0; i < LENGTH; i++) {
@@ -21,12 +21,12 @@ public class LotteryTicket {
 
             do {
                 randomNumber = random.nextInt(1, MAX_TICKET_NUMBER);
-            } while (search(ticket, randomNumber));
+            } while (search(tickets, randomNumber));
 
-            ticket[i] = randomNumber;
+            tickets[i] = randomNumber;
         }
 
-        return ticket;
+        return tickets;
     }
 
     public static boolean search(int[] array, int numberToSearchFor) {
