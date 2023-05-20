@@ -2,16 +2,21 @@ package exceptions;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MultipleExceptionHandling {
     public static void main(String[] args) {
-        File file = new File("files/numbers.txt");
+        File inputFile = new File("files/numbers.txt");
+        File outputFile = new File("files/output.txt");
 
-        try (Scanner fileReader = new Scanner(file)) {
+        try (
+                Scanner fileReader = new Scanner(inputFile);
+                PrintWriter fileWriter = new PrintWriter(outputFile)
+        ) {
             while (fileReader.hasNext()) {
-                System.out.println(fileReader.nextDouble());
+                fileWriter.println(fileReader.nextDouble());
             }
         } catch (FileNotFoundException | InputMismatchException e) {
             System.out.println(e.getMessage());
