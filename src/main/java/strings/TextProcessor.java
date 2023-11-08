@@ -26,6 +26,8 @@ public class TextProcessor {
 
     public static void addSpace(String value) {
         var modifiedValue = new StringBuilder(value);
+        var s = new StringBuilder();
+        s.insert(1, 2);
 
         for (int i = 0; i < modifiedValue.length(); i++) {
             if (i != 0 && Character.isUpperCase(modifiedValue.charAt(i))) {
