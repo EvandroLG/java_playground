@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.HashMap;
 
-public class Fib {
+public class Fibonacci {
 
     public static void main(String[] args) {
         int result = solution(800);
