@@ -6,8 +6,8 @@ import java.util.List;
 
 public class SumPossible {
     public static void main(String[] args) {
-        boolean result = solution(new ArrayList<>(List.of(1, 2, 3)), 4);
-        System.out.println(result);
+        System.out.println(solution(new ArrayList<>(List.of(1, 2, 3)), 4));
+        System.out.println(solution(new ArrayList<>(List.of(4, 6, 10)), 15));
     }
 
     public static boolean solution(ArrayList<Integer> items, int target) {
