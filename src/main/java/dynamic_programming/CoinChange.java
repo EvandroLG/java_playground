@@ -1,10 +1,7 @@
 package dynamic_programming;
 
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class CoinChange {
     public static void main(String[] args) {
@@ -13,29 +10,31 @@ public class CoinChange {
     }
 
     public static int solution(int[] coins, int amount) {
-        return solution(coins, amount, 0, new HashSet<>());
+        return solution(coins, amount, new HashMap<>());
     }
 
-    public static int solution(int[] coins, int amount, int totalCoins, HashSet<Integer> memo) {
+    public static int solution(int[] coins, int amount, HashMap<Integer, Integer> memo) {
         if (amount < 0) {
             return -1;
         }
 
         if (amount == 0) {
-            return totalCoins;
+            return 0;
         }
 
+        int min = -1;
         for (Integer coin : coins) {
-            int result = solution(coins, amount - coin, totalCoins + 1, memo);
-            memo.add(result);
+            int result = solution(coins, amount - coin, memo);
+
+            if (result != -1) {
+                int total = result + 1;
+
+                if (total < min || min == -1) {
+                    min = total;
+                }
+            }
         }
 
-        memo.remove(-1);
-
-        try {
-            return Collections.min(memo);
-        } catch (Exception e) {
-            return -1;
-        }
+        return min;
     }
 }
