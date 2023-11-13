@@ -44,6 +44,9 @@ public class CountPaths {
         int goRight = solution(grid, row, col + 1, memo);
         int goDown = solution(grid, row + 1, col, memo);
 
-        return goRight + goDown;
+        int result = goRight + goDown;
+        memo.put(key, result);
+
+        return result;
     }
 }
