@@ -10,7 +10,7 @@ public class Graph {
 
   public void addVertex(int vertex) {
     if (!graph.containsKey(vertex)) {
-      graph.put(vertex, new ArrayList<>()); // Use ArrayList instead of List.of()
+      graph.put(vertex, new ArrayList<>());
     }
   }
 
